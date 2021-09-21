@@ -206,8 +206,8 @@ class AntenaSeeder extends Seeder
         $g->potenciaClaro='';
         $g->potemciaCnt='';
         $g->tiempoActualizacion='';
-        $g->latitud='';
-        $g->longitud='';
+        $g->latitud='-1.254828';
+        $g->longitud='-78.623217';
         $g->save();
 
 
