@@ -96,8 +96,8 @@ Route::get(
 
         $L_50_CNT;
         
-        $F_c_M=850;
-        $F_c_C=850;
+        $F_c_M=1900;
+        $F_c_C=1700;
         $F_c_CNT=1900;
         $h_T=60;
         
@@ -142,7 +142,7 @@ Route::get(
         $f_ec2=abs(pow($f_b1, 2)-(4*$f_a1*$f_c1));
         $f_ec3=pow($f_ec2, 1/2);
 
-        $lat=(($f_ec1-$f_ec3)/(2*$f_a1))+0.00417555762;
+        $lat=(($f_ec1-$f_ec3)/(2*$f_a1));
 
         
         // longitud
@@ -161,7 +161,7 @@ Route::get(
         $f_ec22= abs( pow($f_b12, 2)-(4*$f_a12*$f_c12) );
         $f_ec32=pow($f_ec22, 1/2);
 
-        $long=(($f_ec12-$f_ec32)/(2*$f_a12))+0.00417555762;
+        $long=(($f_ec12-$f_ec32)/(2*$f_a12));
 
         $geo->latitud=$lat;
         $geo->longitud=$long;
