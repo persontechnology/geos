@@ -103,8 +103,8 @@
 
  <script>
     
-    var lat={{ $geo->latitud??0}};
-    var lng={{ $geo->longitud??0}};
+    var lat={{ $geo->latitud}};
+    var lng={{ $geo->longitud}};
 
     var marker;
     var myLatLng = {lat: lat, lng: lng};
