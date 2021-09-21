@@ -29,8 +29,8 @@ Route::get('/', function () {
 });
 
 Route::get('/obtener-lat-lng', function(){
-    $geo=Geo::find(1);
-    $data = array('latitude' => $geo->latitud??null,'longitude'=>$geo->longitud??null);
+    $geo=Geo::latest()->first();
+    $data = array('latitude' => $geo->latitud??0,'longitude'=>$geo->longitud??0);
     return response()->json($data);
 
 })->name('obtenerLatLng');
@@ -62,10 +62,9 @@ Route::get(
         //     'tiempoActualizacion'=>$tiempoActualizacion,
         // );
 
-        $geo=Geo::find(1);
-        if(!$geo){
-            $geo=new Geo();
-        }
+        
+        $geo=new Geo();
+        
         $geo->codDispositivo=$codDispositivo??'-';
         $geo->codMovistar=$codMovistar??'-';
         $geo->codClaro=$codClaro??'-';
@@ -173,12 +172,12 @@ Route::get(
 
 });
 Route::get('/geo-get',function(){
-    return Geo::find(1);
+    return Geo::latest()->first();
 });
 
 
 Route::get('/dashboard', function () {
-    $geo=Geo::find(1);
+    $geo=Geo::latest()->first();
     
     return view('dashboard',['geo'=>$geo]);
 
