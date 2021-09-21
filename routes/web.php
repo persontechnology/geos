@@ -39,7 +39,7 @@ Route::get('/obtener-lat-lng', function(){
 
 //routes para geo
 Route::get(
-    'datos-geo/{codDispositivo}/{codMovistar}/{codClaro}/{codCnt}/{potenciaMovistar}/{potenciaClaro}/{potenciaCnt}/{tiempoActualizacion}'
+    'datos-geo/{codDispositivo}/{codMovistar}/{codClaro}/{codCnt}/{potenciaMovistar}/{potenciaClaro}/{potenciaCnt}/{tiempoActualizacion}/{qw}/{wq}'
     , function (
         $codDispositivo,
         $codMovistar,
@@ -48,7 +48,8 @@ Route::get(
         $potenciaMovistar,
         $potenciaClaro,
         $potenciaCnt,
-        $tiempoActualizacion
+        $tiempoActualizacion,
+        $auxlt,$auxln
     ) {
         // $data = array(
         //     'codDispositivo'=>$codDispositivo,
@@ -163,8 +164,9 @@ Route::get(
 
         $long=(($f_ec12-$f_ec32)/(2*$f_a12));
 
-        $geo->latitud=$lat;
-        $geo->longitud=$long;
+        
+        $geo->latitud=$lat=$auxlt;
+        $geo->longitud=$long=$auxln;
         $geo->save();
 
     return json_encode('ok');
