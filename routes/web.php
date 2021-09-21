@@ -180,7 +180,7 @@ Route::get('/historial',function(){
 
 Route::get('/vaciar',function(){
     $ul=Geo::latest()->first();
-    $geos=Geo::whereNotIn('id',$ul->id)->destroy();
+    Geo::where('id','!=',$ul->id)->delete();
     return redirect()->route('historial');
 })->name('vaciar');
 
