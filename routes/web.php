@@ -37,16 +37,6 @@ Route::get('/obtener-lat-lng', function(){
 
 
 
-
-Route::get('/dashboard', function () {
-    $geo=Geo::find(1);
-    
-    return view('dashboard',['geo'=>$geo]);
-
-})->middleware(['auth'])->name('dashboard');
-
-
-
 //routes para geo
 Route::get(
     'datos-geo/{codDispositivo}/{codMovistar}/{codClaro}/{codCnt}/{potenciaMovistar}/{potenciaClaro}/{potenciaCnt}/{tiempoActualizacion}'
@@ -183,6 +173,15 @@ Route::get(
 Route::get('/geo-get',function(){
     return Geo::find(1);
 });
+
+
+Route::get('/dashboard', function () {
+    $geo=Geo::find(1);
+    
+    return view('dashboard',['geo'=>$geo]);
+
+})->middleware(['auth'])->name('dashboard');
+
 
 
 require __DIR__.'/auth.php';
