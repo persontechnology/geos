@@ -71,6 +71,9 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Inicio') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('historial')" :active="request()->routeIs('historial')">
+                {{ __('Historial') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

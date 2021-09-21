@@ -86,7 +86,7 @@
     <script>
         function midatos(){
             $.get( "{{ url('geo-get') }}", function( data ) {
-              console.log(data)
+              
                 $('#codDispositivo').html(data.codDispositivo)
                 $('#codMovistar').html(data.codMovistar)
                 $('#codClaro').html(data.codClaro)
