@@ -178,6 +178,12 @@ Route::get('/historial',function(){
     return view('historial',['geos'=>Geo::latest()->paginate(20)]);
 })->name('historial');
 
+Route::get('/vaciar',function(){
+    $ul=Geo::latest()->first();
+    $geos=Geo::whereNotIn('id',$ul->id)->delete();
+    return redirect()->route('historial');
+})->name('vaciar');
+
 
 Route::get('/dashboard', function () {
     $geo=Geo::latest()->first();

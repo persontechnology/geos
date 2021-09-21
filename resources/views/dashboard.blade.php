@@ -54,8 +54,8 @@
                             <th scope="col">P.Claro</th>
                             <th scope="col">P.Cnt</th>
                             <th scope="col">Tiempo</th>
-                            <th scope="col">Fecha</th>
                             <th scope="col">Coordenadas</th>
+                            <th scope="col">Fecha</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -68,8 +68,9 @@
                             <td id="potenciaClaro"></td>
                             <td id="potemciaCnt"></td>
                             <td id="tiempoActualizacion"></td>
-                            <td id="fecha"></td>
                             <td id="coor"></td>
+                            <td id="fecha"></td>
+                            
                         </tr>
                         </tbody>
                     </table>

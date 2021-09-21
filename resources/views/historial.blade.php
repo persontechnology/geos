@@ -3,6 +3,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Historial Georeferencia GPS') }}
+            <a href="{{ route('vaciar') }}">Vaciar Registro</a>
         </h2>
     </x-slot>
 
@@ -21,8 +22,8 @@
                             <th scope="col">P.Claro</th>
                             <th scope="col">P.Cnt</th>
                             <th scope="col">Tiempo</th>
-                            <th scope="col">Fecha</th>
                             <th scope="col">Coordenadas</th>
+                            <th scope="col">Fecha</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -38,8 +39,9 @@
                             <td id="potenciaClaro">{{ $geo->potenciaClaro }}</td>
                             <td id="potemciaCnt">{{ $geo->potemciaCnt }}</td>
                             <td id="tiempoActualizacion">{{ $geo->tiempoActualizacion }}</td>
-                            <td id="fecha">{{ $geo->created_at }}</td>
                             <td id="coor">{{ $geo->latitud }} {{ $geo->longitud }}</td>
+                            <td id="fecha">{{ $geo->created_at }}</td>
+                            
                         </tr>
                         @endforeach
 
