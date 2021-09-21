@@ -85,6 +85,7 @@
     <script>
         function midatos(){
             $.get( "{{ url('geo-get') }}", function( data ) {
+              console.log(data)
                 $('#codDispositivo').html(data.codDispositivo)
                 $('#codMovistar').html(data.codMovistar)
                 $('#codClaro').html(data.codClaro)
@@ -125,7 +126,7 @@
      // every 10 seconds
      setInterval(function(){
        $.get("{{ route('obtenerLatLng') }}",{}, function(json) {
-           console.log(json)
+           
            var LatLng = new google.maps.LatLng(json.latitude, json.longitude);
            marker.setPosition(LatLng);
            
