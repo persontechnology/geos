@@ -163,8 +163,8 @@ Route::get(
 
         $long=(($f_ec12-$f_ec32)/(2*$f_a12))+0.00417555762;
 
-        $geo->latitud=$lat;
-        $geo->longitud=$long;
+        $geo->latitud=$lat??'0';
+        $geo->longitud=$long??'0';
         $geo->save();
 
     return json_encode('ok');
