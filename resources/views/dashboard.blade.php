@@ -103,8 +103,8 @@
 
  <script>
     
-    var lat={{ $geo->latitud}};
-    var lng={{ $geo->longitud}};
+    var lat={{ $geo->latitud??0}};
+    var lng={{ $geo->longitud??0}};
 
     var marker;
     var myLatLng = {lat: lat, lng: lng};
@@ -135,10 +135,10 @@
        
      }
   </script>
-  {{--  <script async defer
+  <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4bcJ39miYRDXIr4ux3484nqQP1XqS9Bw&callback=initMap">
-  </script>  --}}
+  </script>
 
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ-OpTnDtdGi7eC8UMkmYAGQ_kOJ21xeM&callback=initMap"></script>
+  {{--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ-OpTnDtdGi7eC8UMkmYAGQ_kOJ21xeM&callback=initMap"></script>  --}}
   
 </x-app-layout>
