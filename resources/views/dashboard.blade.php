@@ -125,7 +125,7 @@
      // every 10 seconds
      setInterval(function(){
        $.get("{{ route('obtenerLatLng') }}",{}, function(json) {
-           console.log(json.latitude)
+           console.log(json)
            var LatLng = new google.maps.LatLng(json.latitude, json.longitude);
            marker.setPosition(LatLng);
            
