@@ -174,6 +174,9 @@ Route::get(
 Route::get('/geo-get',function(){
     return Geo::latest()->first();
 });
+Route::get('/historial',function(){
+    return view('historial',['geos'=>Geo::latest()->paginate(20)]);
+})->name('historial');
 
 
 Route::get('/dashboard', function () {
