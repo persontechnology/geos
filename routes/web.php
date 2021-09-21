@@ -139,7 +139,7 @@ Route::get(
         $f_c1=(pow($ec2, 2))+pow($k1_M, 2)-pow($r1_M, 2);
         
         $f_ec1=-$f_b1;
-        $f_ec2=pow($f_b1, 2)-(4*$f_a1*$f_c1);
+        $f_ec2=abs(pow($f_b1, 2)-(4*$f_a1*$f_c1));
         $f_ec3=pow($f_ec2, 1/2);
 
         $lat=(($f_ec1-$f_ec3)/(2*$f_a1))+0.00417555762;
@@ -163,8 +163,8 @@ Route::get(
 
         $long=(($f_ec12-$f_ec32)/(2*$f_a12))+0.00417555762;
 
-        $geo->latitud=$lat??'0';
-        $geo->longitud=$long??'0';
+        $geo->latitud=$lat;
+        $geo->longitud=$long;
         $geo->save();
 
     return json_encode('ok');
