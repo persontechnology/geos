@@ -24,6 +24,8 @@ class CreateGeosTable extends Migration
             $table->string('potenciaClaro')->nullable();
             $table->string('potemciaCnt')->nullable();
             $table->string('tiempoActualizacion')->nullable();
+            $table->string('latitud')->nullable();
+            $table->string('longitud')->nullable();
         });
     }
 
