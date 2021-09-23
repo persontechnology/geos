@@ -14,7 +14,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <div class="navbar-form navbar-left">
-                        <h4>WebCodeCamJS.js Demonstration</h4>
+                        <h4>Registro de asistencia</h4>
                     </div>
                     <div class="navbar-form navbar-right">
                         <select class="form-control" id="camera-select"></select>
@@ -73,14 +73,14 @@
         </div>
         <script type="text/javascript" src="{{ asset('webcodecamjs/js/filereader.js') }}"></script>
         <!-- Using jquery version: -->
-        <!--
-            <script type="text/javascript" src="{{ asset('webcodecamjs/js/jquery.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('webcodecamjs/js/qrcodelib.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('webcodecamjs/js/webcodecamjquery.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('webcodecamjs/js/mainjquery.js') }}"></script>
-        -->
+        
+        <script type="text/javascript" src="{{ asset('webcodecamjs/js/jquery.js') }}"></script>
         <script type="text/javascript" src="{{ asset('webcodecamjs/js/qrcodelib.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('webcodecamjs/js/webcodecamjquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('webcodecamjs/js/mainjquery.js') }}"></script>
+        
+        {{--  <script type="text/javascript" src="{{ asset('webcodecamjs/js/qrcodelib.js') }}"></script>
         <script type="text/javascript" src="{{ asset('webcodecamjs/js/webcodecamjs.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('webcodecamjs/js/main.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('webcodecamjs/js/main.js') }}"></script>  --}}
     </body>
 </html>
