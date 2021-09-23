@@ -58,7 +58,7 @@
             flipHorizontal: false,
             zoom: 0,
             beep: '',
-            decoderWorker: '../js/DecoderWorker.js',
+            decoderWorker: '../../webcodecamjs/js/DecoderWorker.js',
             brightness: 0,
             autoBrightnessValue: 0,
             grayScale: 0,
