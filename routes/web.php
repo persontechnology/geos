@@ -96,8 +96,8 @@ Route::get(
 
         $L_50_CNT;
         
-        $F_c_M=1900;
-        $F_c_C=1700;
+        $F_c_M=850;
+        $F_c_C=850;
         $F_c_CNT=1900;
         $h_T=60;
         
@@ -164,8 +164,8 @@ Route::get(
         $long=(($f_ec12-$f_ec32)/(2*$f_a12));
 
         
-        $geo->latitud=$auxlt;
-        $geo->longitud=$auxln;
+        $geo->latitud=$lat;
+        $geo->longitud=$long;
         $geo->save();
 
     return json_encode('ok');
