@@ -117,13 +117,13 @@ Route::get(
         $r3_CNT=$d_CNT/111.111;
 
         //ECUACION DE LATITUD Y LONGITUD
-        $k1_M=$antena_M->Lat;
-        $k2_C=$antena_C->Lat;
-        $k3_CNT=$antena_CNT->Lat;
+        $h1_M=$antena_M->Lat;
+        $h2_C=$antena_C->Lat;
+        $h3_CNT=$antena_CNT->Lat;
 
-        $h1_M=$antena_M->Long;
-        $h2_C=$antena_C->Long;
-        $h3_CNT=$antena_CNT->Long;
+        $k1_M=$antena_M->Long;
+        $k2_C=$antena_C->Long;
+        $k3_CNT=$antena_CNT->Long;
         
 
         //latitud
