@@ -117,13 +117,13 @@ Route::get(
         $r3_CNT=$d_CNT/111.111;
 
         //ECUACION DE LATITUD Y LONGITUD
-        $h1_M=$antena_M->Lat;
-        $h2_C=$antena_C->Lat;
-        $h3_CNT=$antena_CNT->Lat;
+        $k1_M=$antena_M->Lat;
+        $k2_C=$antena_C->Lat;
+        $k3_CNT=$antena_CNT->Lat;
 
-        $k1_M=$antena_M->Long;
-        $k2_C=$antena_C->Long;
-        $k3_CNT=$antena_CNT->Long;
+        $h1_M=$antena_M->Long;
+        $h2_C=$antena_C->Long;
+        $h3_CNT=$antena_CNT->Long;
         
 
         //latitud
@@ -142,7 +142,7 @@ Route::get(
         $f_ec2=abs(pow($f_b1, 2)-(4*$f_a1*$f_c1));
         $f_ec3=pow($f_ec2, 1/2);
 
-        $lat=(($f_ec1-$f_ec3)/(2*$f_a1))-0.0170042;
+        $lat=(($f_ec1-$f_ec3)/(2*$f_a1))+0.00417555762;
 
         
         // longitud
@@ -161,11 +161,11 @@ Route::get(
         $f_ec22= abs( pow($f_b12, 2)-(4*$f_a12*$f_c12) );
         $f_ec32=pow($f_ec22, 1/2);
 
-        $long=(($f_ec12-$f_ec32)/(2*$f_a12))+0.015536;
+        $long=(($f_ec12-$f_ec32)/(2*$f_a12))+0.3756368828;
 
         
-        $geo->latitud=$long;
-        $geo->longitud=$lat;
+        $geo->latitud=$lat;
+        $geo->longitud=$long;
         $geo->save();
         // na
 
