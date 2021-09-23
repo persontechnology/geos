@@ -164,8 +164,8 @@ Route::get(
         $long=(($f_ec12-$f_ec32)/(2*$f_a12));
 
         
-        $geo->latitud=(float)number_format($lat,7,'.',''); //-0.0189163
-        $geo->longitud=(float)number_format($long,7,'.','');//-0.3441808;
+        $geo->latitud=$auxlt;//(float)number_format($lat,7,'.',''); //-0.0189163
+        $geo->longitud=$auxln;//(float)number_format($long,7,'.','');//-0.3441808;
         $geo->save();
         // na
 
