@@ -167,6 +167,7 @@ Route::get(
         $geo->latitud=$lat;
         $geo->longitud=$long;
         $geo->save();
+        // na
 
     return json_encode('ok');
 
