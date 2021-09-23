@@ -57,7 +57,7 @@
             flipVertical: false,
             flipHorizontal: false,
             zoom: 0,
-            beep: '',
+            beep: '../../webcodecamjs/audio/beep.mp3',
             decoderWorker: '../../webcodecamjs/js/DecoderWorker.js',
             brightness: 0,
             autoBrightnessValue: 0,
