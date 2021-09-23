@@ -142,7 +142,7 @@ Route::get(
         $f_ec2=abs(pow($f_b1, 2)-(4*$f_a1*$f_c1));
         $f_ec3=pow($f_ec2, 1/2);
 
-        $lat=(($f_ec1-$f_ec3)/(2*$f_a1))+0.00417555762;
+        $lat=(($f_ec1-$f_ec3)/(2*$f_a1));
 
         
         // longitud
@@ -161,11 +161,11 @@ Route::get(
         $f_ec22= abs( pow($f_b12, 2)-(4*$f_a12*$f_c12) );
         $f_ec32=pow($f_ec22, 1/2);
 
-        $long=(($f_ec12-$f_ec32)/(2*$f_a12))+0.3756368828;
+        $long=(($f_ec12-$f_ec32)/(2*$f_a12));
 
         
-        $geo->latitud=$lat;
-        $geo->longitud=$long;
+        $geo->latitud=(float)number_format($lat,7,'.','') -0.01891630;
+        $geo->longitud=(float)number_format($long,7,'.','')-0.3441808;
         $geo->save();
         // na
 
