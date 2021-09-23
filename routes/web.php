@@ -28,6 +28,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/camara', function () {
+    return view('camara');
+});
+
 Route::get('/obtener-lat-lng', function(){
     $geo=Geo::latest()->first();
     $data = array('latitude' => $geo->latitud??0,'longitude'=>$geo->longitud??0);
