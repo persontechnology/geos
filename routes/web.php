@@ -53,7 +53,7 @@ Route::get('/obtener-lat-lng', function(){
 
 //routes para geo
 Route::get(
-    'datos-geo/{codDispositivo}/{codMovi}/{celdaMovi}/{codClaro}/{celdaClaro}/{codCnt}/{celdaCnt}/{potenciaMovistar}/{potenciaClaro}/{potenciaCnt}/{auxlt}/{auxln}'
+    'datos-geo/{codDispositivo}/{codMovi}/{celdaMovi}/{codClaro}/{celdaClaro}/{codCnt}/{celdaCnt}/{potenciaMovistar}/{potenciaClaro}/{potenciaCnt}/{tiempo}/{auxlt}/{auxln}'
     , function (
         $codDispositivo,
         $codMovi,
@@ -65,6 +65,7 @@ Route::get(
         $potenciaMovistar,
         $potenciaClaro,
         $potenciaCnt,
+        $tiempo,
         $auxlt,
         $auxln
     ) {        
@@ -86,6 +87,7 @@ Route::get(
             $g->potenciaMovistar=$potenciaMovistar;
             $g->potenciaClaro=$potenciaClaro;
             $g->potenciaCnt=$potenciaCnt;
+            $g->tiempoActualizacion=$tiempo;
             $g->auxlt=$auxlt;
             $g->auxln=$auxln;
             $g->save();
