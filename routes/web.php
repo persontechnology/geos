@@ -132,11 +132,10 @@ Route::get(
             $k2_C=$antena_C->lat;
             $k3_CNT=$antena_CNT->lat;
 
-            $h1_M=$antena_M->long;
-            $h2_C=$antena_C->long;
-            $h3_CNT=$antena_CNT->long;
+            $h1_M=$antena_M->lon;
+            $h2_C=$antena_C->lon;
+            $h3_CNT=$antena_CNT->lon;
             
-
             // lat
 
             $ec1=((2*$k1_M)+(2*$k2_C)-(4*$k3_CNT))/((-2*$h1_M)-(2*$h2_C)+(4*$h3_CNT));
