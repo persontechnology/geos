@@ -60,6 +60,7 @@
                             <th scope="col">tiempoActualizacion</th>
                             <th scope="col">lat</th>
                             <th scope="col">long</th>
+                            <th scope="col">Fecha</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -77,6 +78,7 @@
                           <td id="tiempoActualizacion"></td>
                           <td id="auxlt"></td>
                           <td id="auxln"></td>
+                          <td id="fecha"></td>
                             
                         </tr>
                         </tbody>
@@ -107,6 +109,7 @@
               $('#tiempoActualizacion').html(data.tiempoActualizacion)
               $('#auxlt').html(data.auxlt)
               $('#auxln').html(data.auxln)
+              $('#fecha').html(data.created_at)
 
             });
         }
