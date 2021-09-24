@@ -88,8 +88,7 @@ Route::get(
             $g->potenciaClaro=$potenciaClaro;
             $g->potenciaCnt=$potenciaCnt;
             $g->tiempoActualizacion=$tiempo;
-            $g->auxlt=$auxlt;
-            $g->auxln=$auxln;
+       
             $g->save();
 
 
