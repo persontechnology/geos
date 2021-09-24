@@ -19,7 +19,7 @@
                     <div class="navbar-form navbar-right">
                         <select class="form-control" id="camera-select"></select>
                         <div class="form-group">
-                            <input id="image-url" type="text" class="form-control" placeholder="Image url">
+                            <input id="image-url" type="text" class="form-control" placeholder="Imagen url">
                             <button title="Decode Image" class="btn btn-default btn-sm" id="decode-img" type="button" data-toggle="tooltip"><span class="glyphicon glyphicon-upload"></span></button>
                             <button title="Image shoot" class="btn btn-info btn-sm disabled" id="grab-img" type="button" data-toggle="tooltip"><span class="glyphicon glyphicon-picture"></span></button>
                             <button title="Play" class="btn btn-success btn-sm" id="play" type="button" data-toggle="tooltip"><span class="glyphicon glyphicon-play"></span></button>

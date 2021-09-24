@@ -16,12 +16,16 @@ class CreateAntenasTable extends Migration
         Schema::create('antenas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('Tec')->nullable();
-            $table->string('Cod') ->nullable();
-            $table->string('Long') ->nullable();
-            $table->string('Lat') ->nullable();
-            $table->string('P') ->nullable();
-            $table->string('CodHexa') ->nullable();
+            $table->string('codi')->nullable()->default('');
+            $table->string('radio')	->nullable()->default('');
+            $table->string('mcc')	->nullable()->default('');
+            $table->string('net')	->nullable()->default('');
+            $table->string('area')	->nullable()->default('');
+            $table->string('cell')	->nullable()->default('');
+            $table->string('lon')	->nullable()->default('');
+            $table->string('lat')	->nullable()->default('');
+            $table->string('range')	->nullable()->default('');
+            $table->string('potencia')->nullable()->default('');
 
         });
     }

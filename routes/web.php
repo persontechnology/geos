@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use App\Models\Antena;
 use App\Models\Geo;
 use Illuminate\Support\Facades\Route;
@@ -28,13 +29,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('/camara', function () {
     return view('camara');
 });
 
+
+Route::get('/antenas',function(){
+    return view('antenas',['antenas'=>Antena::latest()->paginate(20)]);
+})->name('antenas');
+Route::post('/antenas-guardar',[AppController::class,'import'])->name('antenas-guardar');
+
+
 Route::get('/obtener-lat-lng', function(){
     $geo=Geo::latest()->first();
-    $data = array('latitude' => $geo->latitud??0,'longitude'=>$geo->longitud??0);
+    $data = array('latitude' => $geo->auxlt??0,'longitude'=>$geo->auxln??0);
     return response()->json($data);
 
 })->name('obtenerLatLng');
@@ -43,47 +53,44 @@ Route::get('/obtener-lat-lng', function(){
 
 //routes para geo
 Route::get(
-    'datos-geo/{codDispositivo}/{codMovistar}/{codClaro}/{codCnt}/{potenciaMovistar}/{potenciaClaro}/{potenciaCnt}/{tiempoActualizacion}/{qw}/{wq}'
+    'datos-geo/{codDispositivo}/{codMovi}/{celdaMovi}/{codClaro}/{celdaClaro}/{codCnt}/{celdaCnt}/{potenciaMovistar}/{potenciaClaro}/{potenciaCnt}/{auxlt}/{auxln}'
     , function (
         $codDispositivo,
-        $codMovistar,
+        $codMovi,
+        $celdaMovi,
         $codClaro,
+        $celdaClaro,
         $codCnt,
+        $celdaCnt,
         $potenciaMovistar,
         $potenciaClaro,
         $potenciaCnt,
-        $tiempoActualizacion,
-        $auxlt,$auxln
+        $auxlt,
+        $auxln
     ) {
-        // $data = array(
-        //     'codDispositivo'=>$codDispositivo,
-        //     'codMovistar'=>$codMovistar,
-        //     'codClaro'=>$codClaro,
-        //     'codCnt'=>$codCnt,
-        //     'potenciaMovistar'=>$potenciaMovistar,
-        //     'potenciaClaro'=>$potenciaClaro,
-        //     'potemciaCnt'=>$potenciaCnt,
-        //     'tiempoActualizacion'=>$tiempoActualizacion,
-        // );
-
+                
+        $g=new Geo();
         
-        $geo=new Geo();
-        
-        $geo->codDispositivo=$codDispositivo??'-';
-        $geo->codMovistar=$codMovistar??'-';
-        $geo->codClaro=$codClaro??'-';
-        $geo->codCnt=$codCnt??'-';
-        $geo->potenciaMovistar=$potenciaMovistar??'-';
-        $geo->potenciaClaro=$potenciaClaro??'-';
-        $geo->potemciaCnt=$potenciaCnt??'-';
-        $geo->tiempoActualizacion=$tiempoActualizacion??'-';
-        $geo->save();
+      
+        $g->codDispositivo=$codDispositivo;
+        $g->codMovi=$codMovi;
+        $g->celdaMovi=$celdaMovi;
+        $g->codClaro=$codClaro;
+        $g->celdaClaro=$celdaClaro;
+        $g->codCnt=$codCnt;
+        $g->celdaCnt=$celdaCnt;
+        $g->potenciaMovistar=$potenciaMovistar;
+        $g->potenciaClaro=$potenciaClaro;
+        $g->potenciaCnt=$potenciaCnt;
+        $g->auxlt=$auxlt;
+        $g->auxln=$auxln;
+        $g->save();
 
 
         // proceso
-        $antena_M=Antena::where('Cod',$codMovistar)->first();
-        $antena_C=Antena::where('Cod',$codClaro)->first();
-        $antena_CNT=Antena::where('Cod',$codCnt)->first();
+        $antena_M=Antena::where('codi',$codMovi.$celdaMovi)->first();
+        $antena_C=Antena::where('codi',$codClaro.$celdaClaro)->first();
+        $antena_CNT=Antena::where('codi',$codCnt.$celdaCnt)->first();
 
 
         $A_CT=1;
@@ -94,9 +101,9 @@ Route::get(
         $Pot_C=$potenciaClaro;
         $Pot_CNT=$potenciaCnt;
         
-        $L_50_M=$antena_M->P-$A_CT+$G_T-$A_CR+$G_R-$Pot_M;
-        $L_50_C=$antena_C->P-$A_CT+$G_T-$A_CR+$G_R-$Pot_C;
-        $L_50_CNT=$antena_CNT->P-$A_CT+$G_T-$A_CR+$G_R-$Pot_CNT;
+        $L_50_M=$antena_M->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_M;
+        $L_50_C=$antena_C->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_C;
+        $L_50_CNT=$antena_CNT->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_CNT;
 
         $L_50_CNT;
         
@@ -121,13 +128,13 @@ Route::get(
         $r3_CNT=$d_CNT/111.111;
 
         //ECUACION DE LATITUD Y LONGITUD
-        $k1_M=$antena_M->Lat;
-        $k2_C=$antena_C->Lat;
-        $k3_CNT=$antena_CNT->Lat;
+        $k1_M=$antena_M->lat;
+        $k2_C=$antena_C->lat;
+        $k3_CNT=$antena_CNT->lat;
 
-        $h1_M=$antena_M->Long;
-        $h2_C=$antena_C->Long;
-        $h3_CNT=$antena_CNT->Long;
+        $h1_M=$antena_M->long;
+        $h2_C=$antena_C->long;
+        $h3_CNT=$antena_CNT->long;
         
 
         // lat
@@ -168,9 +175,9 @@ Route::get(
         $long=(($f_ec12-$f_ec32)/(2*$f_a12));
 
         
-        $geo->latitud=(float)number_format($lat,7,'.',''); //-0.0189163
-        $geo->longitud=(float)number_format($long,7,'.','');//-0.3441808;
-        $geo->save();
+        $g->auxlt=(float)number_format($lat,7,'.',''); //-0.0189163
+        $g->auxln=(float)number_format($long,7,'.','');//-0.3441808;
+        $g->save();
         // na
 
     return json_encode('ok');

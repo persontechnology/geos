@@ -17,15 +17,18 @@ class CreateGeosTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('codDispositivo')->nullable();
-            $table->string('codMovistar')->nullable();
+            $table->string('codMovi')->nullable();
+            $table->string('celdaMovi')->nullable();
             $table->string('codClaro')->nullable();
+            $table->string('celdaClaro')->nullable();
             $table->string('codCnt')->nullable();
+            $table->string('celdaCnt')->nullable();
             $table->string('potenciaMovistar')->nullable();
             $table->string('potenciaClaro')->nullable();
-            $table->string('potemciaCnt')->nullable();
+            $table->string('potenciaCnt')->nullable();
             $table->string('tiempoActualizacion')->nullable();
-            $table->string('latitud')->nullable();
-            $table->string('longitud')->nullable();
+            $table->string('auxlt')->nullable();
+            $table->string('auxln')->nullable();
         });
     }
 

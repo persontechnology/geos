@@ -46,30 +46,37 @@
                     <table class="table table-bordered table-auto">
                         <thead>
                         <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Movistar</th>
-                            <th scope="col">Claro</th>
-                            <th scope="col">Cnt</th>
-                            <th scope="col">P.Movistar</th>
-                            <th scope="col">P.Claro</th>
-                            <th scope="col">P.Cnt</th>
-                            <th scope="col">Tiempo</th>
-                            <th scope="col">Coordenadas</th>
-                            <th scope="col">Fecha</th>
+                            
+                            <th scope="col">codDispositivo</th>
+                            <th scope="col">codMovi</th>
+                            <th scope="col">celdaMovi</th>
+                            <th scope="col">codClaro</th>
+                            <th scope="col">celdaClaro</th>
+                            <th scope="col">codCnt</th>
+                            <th scope="col">celdaCnt</th>
+                            <th scope="col">potenciaMovistar</th>
+                            <th scope="col">potenciaClaro</th>
+                            <th scope="col">potenciaCnt</th>
+                            <th scope="col">tiempoActualizacion</th>
+                            <th scope="col">auxlt</th>
+                            <th scope="col">auxln</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr id="datos">
-                            <td id="codDispositivo"></td>
-                            <td id="codMovistar"></td>
-                            <td id="codClaro"></td>
-                            <td id="codCnt"></td>
-                            <td id="potenciaMovistar"></td>
-                            <td id="potenciaClaro"></td>
-                            <td id="potemciaCnt"></td>
-                            <td id="tiempoActualizacion"></td>
-                            <td id="coor"></td>
-                            <td id="fecha"></td>
+                          <td id="codDispositivo"></td>
+                          <td id="codMovi"></td>
+                          <td id="celdaMovi"></td>
+                          <td id="codClaro"></td>
+                          <td id="celdaClaro"></td>
+                          <td id="codCnt"></td>
+                          <td id="celdaCnt"></td>
+                          <td id="potenciaMovistar"></td>
+                          <td id="potenciaClaro"></td>
+                          <td id="potenciaCnt"></td>
+                          <td id="tiempoActualizacion"></td>
+                          <td id="auxlt"></td>
+                          <td id="auxln"></td>
                             
                         </tr>
                         </tbody>
@@ -87,16 +94,20 @@
         function midatos(){
             $.get( "{{ url('geo-get') }}", function( data ) {
               
-                $('#codDispositivo').html(data.codDispositivo)
-                $('#codMovistar').html(data.codMovistar)
-                $('#codClaro').html(data.codClaro)
-                $('#codCnt').html(data.codCnt)
-                $('#potenciaMovistar').html(data.potenciaMovistar)
-                $('#potenciaClaro').html(data.potenciaClaro)
-                $('#potemciaCnt').html(data.potemciaCnt)
-                $('#tiempoActualizacion').html(data.tiempoActualizacion)
-                $('#fecha').html(data.updated_at)
-                $('#coor').html(data.latitud+" "+data.longitud)
+              $('#codDispositivo').html(data.codDispositivo)
+              $('#codMovi').html(data.codMovi)
+              $('#celdaMovi').html(data.celdaMovi)
+              $('#codClaro').html(data.codClaro)
+              $('#celdaClaro').html(data.celdaClaro)
+              $('#codCnt').html(data.codCnt)
+              $('#celdaCnt').html(data.celdaCnt)
+              $('#potenciaMovistar').html(data.potenciaMovistar)
+              $('#potenciaClaro').html(data.potenciaClaro)
+              $('#potenciaCnt').html(data.potenciaCnt)
+              $('#tiempoActualizacion').html(data.tiempoActualizacion)
+              $('#auxlt').html(data.auxlt)
+              $('#auxln').html(data.auxln)
+
             });
         }
         setInterval(midatos, 1000);
@@ -105,8 +116,8 @@
 
  <script>
     
-    var lat={{ $geo->latitud}};
-    var lng={{ $geo->longitud}};
+    var lat={{ $geo->auxlt}};
+    var lng={{ $geo->auxln}};
 
     var marker;
     var myLatLng = {lat: lat, lng: lng};
