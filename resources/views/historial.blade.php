@@ -15,16 +15,19 @@
                     <table class="table table-bordered table-auto">
                         <thead>
                         <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Movistar</th>
-                            <th scope="col">Claro</th>
-                            <th scope="col">Cnt</th>
-                            <th scope="col">P.Movistar</th>
-                            <th scope="col">P.Claro</th>
-                            <th scope="col">P.Cnt</th>
-                            <th scope="col">Tiempo</th>
-                            <th scope="col">Coordenadas</th>
-                            <th scope="col">Fecha</th>
+                            <th scope="col">codDispositivo</th>
+                            <th scope="col">codMovi</th>
+                            <th scope="col">celdaMovi</th>
+                            <th scope="col">codClaro</th>
+                            <th scope="col">celdaClaro</th>
+                            <th scope="col">codCnt</th>
+                            <th scope="col">celdaCnt</th>
+                            <th scope="col">potenciaMovistar</th>
+                            <th scope="col">potenciaClaro</th>
+                            <th scope="col">potenciaCnt</th>
+                            <th scope="col">tiempoActualizacion</th>
+                            <th scope="col">lat</th>
+                            <th scope="col">long</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -32,16 +35,19 @@
     
 
                         <tr id="datos">
-                            <td id="codDispositivo">{{ $geo->codDispositivo }}</td>
-                            <td id="codMovistar">{{ $geo->codMovistar }}</td>
-                            <td id="codClaro">{{ $geo->codClaro }}</td>
-                            <td id="codCnt">{{ $geo->codCnt }}</td>
-                            <td id="potenciaMovistar">{{ $geo->potenciaMovistar }}</td>
-                            <td id="potenciaClaro">{{ $geo->potenciaClaro }}</td>
-                            <td id="potemciaCnt">{{ $geo->potemciaCnt }}</td>
-                            <td id="tiempoActualizacion">{{ $geo->tiempoActualizacion }}</td>
-                            <td id="coor">{{ $geo->latitud }} {{ $geo->longitud }}</td>
-                            <td id="fecha">{{ $geo->created_at }}</td>
+                            <td>{{ $geo->codDispositivo }}</td>
+                            <td>{{ $geo->codMovi }}</td>
+                            <td>{{ $geo->celdaMovi }}</td>
+                            <td>{{ $geo->codClaro }}</td>
+                            <td>{{ $geo->celdaClaro }}</td>
+                            <td>{{ $geo->codCnt }}</td>
+                            <td>{{ $geo->celdaCnt }}</td>
+                            <td>{{ $geo->potenciaMovistar }}</td>
+                            <td>{{ $geo->potenciaClaro }}</td>
+                            <td>{{ $geo->potenciaCnt }}</td>
+                            <td>{{ $geo->tiempoActualizacion }}</td>
+                            <td>{{ $geo->auxlt }}</td>
+                            <td>{{ $geo->auxln }}</td>
                             
                         </tr>
                         @endforeach

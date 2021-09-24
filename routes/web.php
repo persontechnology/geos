@@ -67,118 +67,117 @@ Route::get(
         $potenciaCnt,
         $auxlt,
         $auxln
-    ) {
-                
-        $g=new Geo();
-        
-      
-        $g->codDispositivo=$codDispositivo;
-        $g->codMovi=$codMovi;
-        $g->celdaMovi=$celdaMovi;
-        $g->codClaro=$codClaro;
-        $g->celdaClaro=$celdaClaro;
-        $g->codCnt=$codCnt;
-        $g->celdaCnt=$celdaCnt;
-        $g->potenciaMovistar=$potenciaMovistar;
-        $g->potenciaClaro=$potenciaClaro;
-        $g->potenciaCnt=$potenciaCnt;
-        $g->auxlt=$auxlt;
-        $g->auxln=$auxln;
-        $g->save();
-
-
-        // proceso
+    ) {        
+       // proceso
         $antena_M=Antena::where('codi',$codMovi.$celdaMovi)->first();
         $antena_C=Antena::where('codi',$codClaro.$celdaClaro)->first();
         $antena_CNT=Antena::where('codi',$codCnt.$celdaCnt)->first();
 
+        if($antena_M && $antena_C && $antena_CNT){
 
-        $A_CT=1;
-        $G_T=15.7;
-        $A_CR=1;
-        $G_R=2;
-        $Pot_M=$potenciaMovistar;
-        $Pot_C=$potenciaClaro;
-        $Pot_CNT=$potenciaCnt;
-        
-        $L_50_M=$antena_M->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_M;
-        $L_50_C=$antena_C->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_C;
-        $L_50_CNT=$antena_CNT->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_CNT;
+            $g=new Geo();
+            $g->codDispositivo=$codDispositivo;
+            $g->codMovi=$codMovi;
+            $g->celdaMovi=$celdaMovi;
+            $g->codClaro=$codClaro;
+            $g->celdaClaro=$celdaClaro;
+            $g->codCnt=$codCnt;
+            $g->celdaCnt=$celdaCnt;
+            $g->potenciaMovistar=$potenciaMovistar;
+            $g->potenciaClaro=$potenciaClaro;
+            $g->potenciaCnt=$potenciaCnt;
+            $g->auxlt=$auxlt;
+            $g->auxln=$auxln;
+            $g->save();
 
-        $L_50_CNT;
-        
-        $F_c_M=850;
-        $F_c_C=850;
-        $F_c_CNT=1900;
-        $h_T=60;
-        
-        $a_M=($L_50_M-69.55-26.16*log10($F_c_M)+13.82*log10($h_T))/(44.9-6.55*log10($h_T));
-        $a_C=($L_50_C-69.55-26.16*log10($F_c_C)+13.82*log10($h_T))/(44.9-6.55*log10($h_T));
-        $a_CNT=($L_50_CNT-69.55-26.16*log10($F_c_CNT)+13.82*log10($h_T))/(44.9-6.55*log10($h_T));
 
-        
-        $d_M= pow(10, $a_M);
-        $d_C= pow(10, $a_C);
-        $d_CNT= pow(10, $a_CNT);
 
-        //CALCULO DE RADIO DE CIRCUNFERENCIA
+            $A_CT=1;
+            $G_T=15.7;
+            $A_CR=1;
+            $G_R=2;
+            $Pot_M=$potenciaMovistar;
+            $Pot_C=$potenciaClaro;
+            $Pot_CNT=$potenciaCnt;
+            
+            $L_50_M=$antena_M->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_M;
+            $L_50_C=$antena_C->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_C;
+            $L_50_CNT=$antena_CNT->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_CNT;
 
-        $r1_M=$d_M/111.111;
-        $r2_C=$d_C/111.111;
-        $r3_CNT=$d_CNT/111.111;
+            $L_50_CNT;
+            
+            $F_c_M=850;
+            $F_c_C=850;
+            $F_c_CNT=1900;
+            $h_T=60;
+            
+            $a_M=($L_50_M-69.55-26.16*log10($F_c_M)+13.82*log10($h_T))/(44.9-6.55*log10($h_T));
+            $a_C=($L_50_C-69.55-26.16*log10($F_c_C)+13.82*log10($h_T))/(44.9-6.55*log10($h_T));
+            $a_CNT=($L_50_CNT-69.55-26.16*log10($F_c_CNT)+13.82*log10($h_T))/(44.9-6.55*log10($h_T));
 
-        //ECUACION DE LATITUD Y LONGITUD
-        $k1_M=$antena_M->lat;
-        $k2_C=$antena_C->lat;
-        $k3_CNT=$antena_CNT->lat;
+            
+            $d_M= pow(10, $a_M);
+            $d_C= pow(10, $a_C);
+            $d_CNT= pow(10, $a_CNT);
 
-        $h1_M=$antena_M->long;
-        $h2_C=$antena_C->long;
-        $h3_CNT=$antena_CNT->long;
-        
+            //CALCULO DE RADIO DE CIRCUNFERENCIA
 
-        // lat
+            $r1_M=$d_M/111.111;
+            $r2_C=$d_C/111.111;
+            $r3_CNT=$d_CNT/111.111;
 
-        $ec1=((2*$k1_M)+(2*$k2_C)-(4*$k3_CNT))/((-2*$h1_M)-(2*$h2_C)+(4*$h3_CNT));
+            //ECUACION DE LATITUD Y LONGITUD
+            $k1_M=$antena_M->lat;
+            $k2_C=$antena_C->lat;
+            $k3_CNT=$antena_CNT->lat;
 
-        $ec2    =
-                ((-pow($h1_M,2)-pow($k1_M,2)+pow($r1_M,2)-pow($h2_C,2)-pow($k2_C,2)+pow($r2_C,2)+(2*pow($h3_CNT,2))
-                +(2*pow($k3_CNT,2))-(2*pow($r3_CNT,2)))/((-2*$h1_M)-(2*$h2_C)+(4*$h3_CNT)))-$h1_M;
-        
-        $f_a1=pow($ec1, 2)+1;
-        $f_b1=(2*($ec1*$ec2))-(2*$k1_M);
-        $f_c1=(pow($ec2, 2))+pow($k1_M, 2)-pow($r1_M, 2);
-        
-        $f_ec1=-$f_b1;
-        $f_ec2=abs(pow($f_b1, 2)-(4*$f_a1*$f_c1));
-        $f_ec3=pow($f_ec2, 1/2);
+            $h1_M=$antena_M->long;
+            $h2_C=$antena_C->long;
+            $h3_CNT=$antena_CNT->long;
+            
 
-        $lat=(($f_ec1-$f_ec3)/(2*$f_a1));
+            // lat
 
-        
-    //    long
+            $ec1=((2*$k1_M)+(2*$k2_C)-(4*$k3_CNT))/((-2*$h1_M)-(2*$h2_C)+(4*$h3_CNT));
 
-        $ec12=((2*$h1_M)+(2*$h2_C)-(4*$h3_CNT))/((-2*$k1_M)-(2*$k2_C)+(4*$k3_CNT));
+            $ec2    =
+                    ((-pow($h1_M,2)-pow($k1_M,2)+pow($r1_M,2)-pow($h2_C,2)-pow($k2_C,2)+pow($r2_C,2)+(2*pow($h3_CNT,2))
+                    +(2*pow($k3_CNT,2))-(2*pow($r3_CNT,2)))/((-2*$h1_M)-(2*$h2_C)+(4*$h3_CNT)))-$h1_M;
+            
+            $f_a1=pow($ec1, 2)+1;
+            $f_b1=(2*($ec1*$ec2))-(2*$k1_M);
+            $f_c1=(pow($ec2, 2))+pow($k1_M, 2)-pow($r1_M, 2);
+            
+            $f_ec1=-$f_b1;
+            $f_ec2=abs(pow($f_b1, 2)-(4*$f_a1*$f_c1));
+            $f_ec3=pow($f_ec2, 1/2);
 
-        $ec22    =
-                ((-pow($h1_M,2)-pow($k1_M,2)+pow($r1_M,2)-pow($h2_C,2)-pow($k2_C,2)+pow($r2_C,2)+(2*pow($h3_CNT,2))
-                +(2*pow($k3_CNT,2))-(2*pow($r3_CNT,2)))/((-2*$k1_M)-(2*$k2_C)+(4*$k3_CNT)))-$k2_C;
-        
-        $f_a12=pow($ec12, 2)+1;
-        $f_b12=(2*($ec12*$ec22))-(2*$h2_C);
-        $f_c12=(pow($ec22, 2))+pow($h2_C, 2)-pow($r2_C, 2);
-        
-        $f_ec12=-$f_b12;
-        $f_ec22= abs( pow($f_b12, 2)-(4*$f_a12*$f_c12) );
-        $f_ec32=pow($f_ec22, 1/2);
+            $lat=(($f_ec1-$f_ec3)/(2*$f_a1));
 
-        $long=(($f_ec12-$f_ec32)/(2*$f_a12));
+            
+        //    long
 
-        
-        $g->auxlt=(float)number_format($lat,7,'.',''); //-0.0189163
-        $g->auxln=(float)number_format($long,7,'.','');//-0.3441808;
-        $g->save();
-        // na
+            $ec12=((2*$h1_M)+(2*$h2_C)-(4*$h3_CNT))/((-2*$k1_M)-(2*$k2_C)+(4*$k3_CNT));
+
+            $ec22    =
+                    ((-pow($h1_M,2)-pow($k1_M,2)+pow($r1_M,2)-pow($h2_C,2)-pow($k2_C,2)+pow($r2_C,2)+(2*pow($h3_CNT,2))
+                    +(2*pow($k3_CNT,2))-(2*pow($r3_CNT,2)))/((-2*$k1_M)-(2*$k2_C)+(4*$k3_CNT)))-$k2_C;
+            
+            $f_a12=pow($ec12, 2)+1;
+            $f_b12=(2*($ec12*$ec22))-(2*$h2_C);
+            $f_c12=(pow($ec22, 2))+pow($h2_C, 2)-pow($r2_C, 2);
+            
+            $f_ec12=-$f_b12;
+            $f_ec22= abs( pow($f_b12, 2)-(4*$f_a12*$f_c12) );
+            $f_ec32=pow($f_ec22, 1/2);
+
+            $long=(($f_ec12-$f_ec32)/(2*$f_a12));
+
+            
+            $g->auxlt=(float)number_format($lat,7,'.',''); //-0.0189163
+            $g->auxln=(float)number_format($long,7,'.','');//-0.3441808;
+            $g->save();
+        }
 
     return json_encode('ok');
 

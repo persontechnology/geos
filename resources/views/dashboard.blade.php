@@ -58,8 +58,8 @@
                             <th scope="col">potenciaClaro</th>
                             <th scope="col">potenciaCnt</th>
                             <th scope="col">tiempoActualizacion</th>
-                            <th scope="col">auxlt</th>
-                            <th scope="col">auxln</th>
+                            <th scope="col">lat</th>
+                            <th scope="col">long</th>
                         </tr>
                         </thead>
                         <tbody>
