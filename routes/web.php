@@ -183,7 +183,24 @@ Route::get(
 
 });
 Route::get('/geo-get',function(){
-    return Geo::latest()->first();
+    $geo= Geo::latest()->first();
+    $data = array(
+        'codDispositivo'=>$geo->codDispositivo,
+        'codMovi'=>$geo->codMovi,
+        'celdaMovi'=>$geo->celdaMovi,
+        'codClaro'=>$geo->codClaro,
+        'celdaClaro'=>$geo->celdaClaro,
+        'codCnt'=>$geo->codCnt,
+        'celdaCnt'=>$geo->celdaCnt,
+        'potenciaMovistar'=>$geo->potenciaMovistar,
+        'potenciaClaro'=>$geo->potenciaClaro,
+        'potenciaCnt'=>$geo->potenciaCnt,
+        'tiempoActualizacion'=>$geo->tiempoActualizacion,
+        'auxlt'=>$geo->auxlt,
+        'auxln'=>$geo->auxln,
+        'created_at'=>$geo->created_at->diffForHumans(),
+    );
+    return $data;
 });
 Route::get('/historial',function(){
     return view('historial',['geos'=>Geo::latest()->paginate(20)]);

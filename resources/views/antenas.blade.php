@@ -9,12 +9,12 @@
             <div class="row">
                 <div class="col-md-9 col-sm-12">
                     <div>
-                        <label for="formFileLg" class="form-label">Exportar datos de antenas</label>
+                        <label for="formFileLg" class="form-label">Importar datos de antenas</label>
                         <input class="form-control form-control-lg" name="antenas" id="formFileLg" type="file" required>
                       </div>
                 </div>
                 <div class="col-md-3 col-sm-12 d-grid gap-3">
-                    <button type="submit" class="btn btn-success btn-block">Exportar excel</button>
+                    <button type="submit" class="btn btn-success btn-block">Importar excel</button>
                 </div>
               </div>
           </form>

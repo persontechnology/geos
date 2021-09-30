@@ -28,6 +28,7 @@
                             <th scope="col">tiempoActualizacion</th>
                             <th scope="col">lat</th>
                             <th scope="col">long</th>
+                            <th scope="col">Fecha</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -48,6 +49,7 @@
                             <td>{{ $geo->tiempoActualizacion }}</td>
                             <td>{{ $geo->auxlt }}</td>
                             <td>{{ $geo->auxln }}</td>
+                            <td>{{ $geo->created_at->diffForHumans() }}</td>
                             
                         </tr>
                         @endforeach

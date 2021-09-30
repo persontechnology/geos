@@ -6,6 +6,7 @@ use App\Models\Antena;
 use App\Models\Geo;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AntenaSeeder extends Seeder
 {
@@ -41,7 +42,7 @@ class AntenaSeeder extends Seeder
 
 
         // user
-        $email='admin@gmail.com';
+        $email='robertovinicio90@gmail.com';
         $user=User::where('email',$email)->first();
         if(!$user){
             $user=new User();
@@ -49,7 +50,8 @@ class AntenaSeeder extends Seeder
         $user->name = $email;
         $user->email = $email;
         $user->email_verified_at = now();
-        $user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // password
+        $user->password = 
+        Hash::make('roberto2021');
         $user->remember_token = 'ok';
         $user->save();
     }
