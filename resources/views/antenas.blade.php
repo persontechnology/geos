@@ -12,9 +12,11 @@
                         <label for="formFileLg" class="form-label">Importar datos de antenas</label>
                         <input class="form-control form-control-lg" name="antenas" id="formFileLg" type="file" required>
                       </div>
+                      
                 </div>
-                <div class="col-md-3 col-sm-12 d-grid gap-3">
+                <div class="col-md-3 col-sm-12">
                     <button type="submit" class="btn btn-success btn-block">Importar excel</button>
+                    <a href="{{ route('vaciarAntenas') }}" class="btn btn-danger">Vaciar</a>
                 </div>
               </div>
           </form>
