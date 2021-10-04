@@ -150,7 +150,7 @@ Route::get(
 
             $lat=(-$f_b1+sqrt(pow($f_b1,2)-4*$f_a1*$f_c1))/(2*$f_a1);
 
-            return json_encode("latitudd=".$lat);
+            
         //    long
 
             $ec12=((2*$h1_M)+(2*$h2_C)-(4*$h3_CNT))/((-2*$k1_M)-(2*$k2_C)+(4*$k3_CNT));
@@ -168,8 +168,8 @@ Route::get(
             $long=(-$f_b12-sqrt(pow($f_b12,2-4*$f_a12*$f_c12)))/(2*$f_a12);
 
             
-            $g->auxlt=(float)number_format($lat,7,'.',''); //-0.0189163
-            $g->auxln=(float)number_format($long,7,'.','');//-0.3441808;
+            $g->auxlt=$lat; //-0.0189163
+            $g->auxln=$long;//-0.3441808;
             $g->save();
         }
 
