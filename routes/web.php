@@ -74,7 +74,7 @@ Route::get(
         $antena_C=Antena::where('codi',$codClaro.$celdaClaro)->first();
         $antena_CNT=Antena::where('codi',$codCnt.$celdaCnt)->first();
 
-         if($antena_M && $antena_C && $antena_CNT){
+         //if($antena_M && $antena_C && $antena_CNT){
 
             $g=new Geo();
             $g->codDispositivo=$codDispositivo;
@@ -171,7 +171,7 @@ Route::get(
             $g->auxlt=$lat; //-0.0189163
             $g->auxln=$long;//-0.3441808;
             $g->save();
-        }
+        //}
 
     return json_encode('lat='.$lat.' long='.$long);
 
