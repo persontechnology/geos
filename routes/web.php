@@ -149,7 +149,7 @@ Route::get(
             $f_c1=pow($ec2, 2)+pow($k1_M, 2)-pow($r1_M, 2);
 
             $lat=(-$f_b1+sqrt(abs(pow($f_b1,2)-4*$f_a1*$f_c1)))/(2*$f_a1);
-
+            
             
         //    long
 
@@ -173,7 +173,7 @@ Route::get(
             $g->save();
         }
 
-    return json_encode('ok');
+    return json_encode('lat='.$lat.' long='.$long);
 
 });
 Route::get('/geo-get',function(){
