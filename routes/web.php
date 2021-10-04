@@ -109,7 +109,7 @@ Route::get(
             
             $F_c_M=850;
             $F_c_C=850;
-            $F_c_CNT=1900;
+            $F_c_CNT=850;
             $h_T=60;
             
             $a_M=($L_50_M-69.55-26.16*log10($F_c_M)+13.82*log10($h_T))/(44.9-6.55*log10($h_T));
@@ -141,18 +141,14 @@ Route::get(
             $ec1=((2*$k1_M)+(2*$k2_C)-(4*$k3_CNT))/((-2*$h1_M)-(2*$h2_C)+(4*$h3_CNT));
 
             $ec2    =
-                    ((-pow($h1_M,2)-pow($k1_M,2)+pow($r1_M,2)-pow($h2_C,2)-pow($k2_C,2)+pow($r2_C,2)+(2*pow($h3_CNT,2))
-                    +(2*pow($k3_CNT,2))-(2*pow($r3_CNT,2)))/((-2*$h1_M)-(2*$h2_C)+(4*$h3_CNT)))-$h1_M;
+                    ((pow($h1_M,2)+pow($k1_M,2)-pow($r1_M,2)+pow($h2_C,2)+pow($k2_C,2)-pow($r2_C,2)-(2*pow($h3_CNT,2))
+                    -(2*pow($k3_CNT,2))+(2*pow($r3_CNT,2)))/((-2*$h1_M)-(2*$h2_C)+(4*$h3_CNT)))+$h1_M;
             
             $f_a1=pow($ec1, 2)+1;
-            $f_b1=(2*($ec1*$ec2))-(2*$k1_M);
-            $f_c1=(pow($ec2, 2))+pow($k1_M, 2)-pow($r1_M, 2);
-            
-            $f_ec1=-$f_b1;
-            $f_ec2=abs(pow($f_b1, 2)-(4*$f_a1*$f_c1));
-            $f_ec3=pow($f_ec2, 1/2);
+            $f_b1=-((2*($ec1*$ec2))+(2*$k1_M));
+            $f_c1=pow($ec2, 2)+pow($k1_M, 2)-pow($r1_M, 2);
 
-            $lat=(($f_ec1-$f_ec3)/(2*$f_a1));
+            $lat=(-$f_b1-sqrt(pow($f_b1,2)-4*$f_a1*$f_c1))/(2*$f_a1);
 
             
         //    long
@@ -160,18 +156,16 @@ Route::get(
             $ec12=((2*$h1_M)+(2*$h2_C)-(4*$h3_CNT))/((-2*$k1_M)-(2*$k2_C)+(4*$k3_CNT));
 
             $ec22    =
-                    ((-pow($h1_M,2)-pow($k1_M,2)+pow($r1_M,2)-pow($h2_C,2)-pow($k2_C,2)+pow($r2_C,2)+(2*pow($h3_CNT,2))
-                    +(2*pow($k3_CNT,2))-(2*pow($r3_CNT,2)))/((-2*$k1_M)-(2*$k2_C)+(4*$k3_CNT)))-$k2_C;
+                    ((pow($h1_M,2)+pow($k1_M,2)-pow($r1_M,2)+pow($h2_C,2)+pow($k2_C,2)-pow($r2_C,2)-(2*pow($h3_CNT,2))
+                    -(2*pow($k3_CNT,2))+(2*pow($r3_CNT,2)))/((-2*$k1_M)-(2*$k2_C)+(4*$k3_CNT)))+$k2_C;
             
             $f_a12=pow($ec12, 2)+1;
-            $f_b12=(2*($ec12*$ec22))-(2*$h2_C);
+            $f_b12=-((2*($ec12*$ec22))+(2*$h2_C));
             $f_c12=(pow($ec22, 2))+pow($h2_C, 2)-pow($r2_C, 2);
             
-            $f_ec12=-$f_b12;
-            $f_ec22= abs( pow($f_b12, 2)-(4*$f_a12*$f_c12) );
-            $f_ec32=pow($f_ec22, 1/2);
+           
 
-            $long=(($f_ec12-$f_ec32)/(2*$f_a12));
+            $long=(-$f_b12-sqrt(pow($f_b12,2-4*$f_a12*$f_c12)))/(2*$f_a12);
 
             
             $g->auxlt=(float)number_format($lat,7,'.',''); //-0.0189163
