@@ -10,13 +10,15 @@
                 <div class="col-md-9 col-sm-12">
                     <div>
                         <label for="formFileLg" class="form-label">Importar datos de antenas</label>
-                        <input class="form-control form-control-lg" name="antenas" id="formFileLg" type="file" required>
+                        <div class="d-grid gap-2 border border-success">
+                        <input class="form-control" name="antenas" id="formFileLg" type="file" required>
+                        </div>
                       </div>
                       
                 </div>
                 <div class="col-md-3 col-sm-12">
                     <button type="submit" class="btn btn-success btn-block">Importar excel</button>
-                    <a href="{{ route('vaciarAntenas') }}" class="btn btn-danger">Vaciar</a>
+                    <a href="{{ route('vaciarAntenas') }}" class="btn btn-danger">Vaciar Registro</a>
                 </div>
               </div>
           </form>
