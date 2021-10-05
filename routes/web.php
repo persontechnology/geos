@@ -168,8 +168,8 @@ Route::get(
             $long=((-$f_b12-sqrt(abs(pow($f_b12,2)-4*$f_a12*$f_c12)))/(2*$f_a12))-0.015157687263;
 
             
-            $g->auxlt=$lat; //-0.0189163
-            $g->auxln=$long;//-0.3441808;
+            $g->auxlt=$auxlt; //-0.0189163
+            $g->auxln=$auxln;//-0.3441808;
             $g->save();
         //}
 
