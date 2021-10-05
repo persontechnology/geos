@@ -2,7 +2,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Antenas') }}
+            {{ __('DataSet de Antenas') }}
         </h2>
         <form class="mb-5" action="{{ route('antenas-guardar') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -17,8 +17,8 @@
                       
                 </div>
                 <div class="col-md-3 col-sm-12">
-                    <button type="submit" class="btn btn-success btn-block">Importar excel</button>
-                    <a href="{{ route('vaciarAntenas') }}" class="btn btn-danger">Vaciar Registro</a>
+                    <button type="submit" class="btn btn-success btn-block mt-4">Importar excel</button>
+                    <a href="{{ route('vaciarAntenas') }}" class="btn btn-danger mt-4">Vaciar Registro</a>
                 </div>
               </div>
           </form>

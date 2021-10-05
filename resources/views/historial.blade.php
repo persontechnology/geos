@@ -3,7 +3,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="{{ route('vaciar') }}" class="btn btn-danger float-right	">Vaciar Registro</a>
-            {{ __('Historial Georeferencia GPS') }}
+            {{ __('Historial Georeferencia Transporte') }}
             
         </h2>
     </x-slot>

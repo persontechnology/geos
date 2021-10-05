@@ -34,8 +34,8 @@
 
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Georeferencia GPS') }}
+        <h2 class="font-semibold text-xl leading-tight">
+            {{ __('Georeferencia Transporte') }}
         </h2>
     </x-slot>
 
