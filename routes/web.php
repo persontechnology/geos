@@ -148,7 +148,7 @@ Route::get(
             $f_b1=-((2*($ec1*$ec2))+(2*$k1_M));
             $f_c1=pow($ec2, 2)+pow($k1_M, 2)-pow($r1_M, 2);
 
-            $lat=(-$f_b1-sqrt(abs(pow($f_b1,2)-4*$f_a1*$f_c1)))/(2*$f_a1);
+            $lat=((-$f_b1-sqrt(abs(pow($f_b1,2)-4*$f_a1*$f_c1)))/(2*$f_a1))-0.0331658880065;
             
             
         //    long
@@ -165,7 +165,7 @@ Route::get(
             
            
 
-            $long=(-$f_b12-sqrt(abs(pow($f_b12,2)-4*$f_a12*$f_c12)))/(2*$f_a12);
+            $long=((-$f_b12-sqrt(abs(pow($f_b12,2)-4*$f_a12*$f_c12)))/(2*$f_a12))-0.015157687263;
 
             
             $g->auxlt=$lat; //-0.0189163
