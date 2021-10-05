@@ -15,7 +15,7 @@
                     <table class="table table-bordered table-auto">
                         <thead>
                         <tr>
-                            <th scope="col">Dispositivo</th>
+                            <th scope="col">DISPOSITIVO</th>
                             <th scope="col">LAC:MOVISTAR</th>
                             <th scope="col">CID:MOVISTAR</th>
                             <th scope="col">LAC:CLARO</th>
@@ -49,7 +49,7 @@
                             <td>{{ $geo->tiempoActualizacion }}</td>
                             <td>{{ $geo->auxlt }}</td>
                             <td>{{ $geo->auxln }}</td>
-                            <td>{{ $geo->created_at }}</td>
+                            <td>{{ $geo->created_at->format('Y-m-d H:i:s') }}</td>
                             
                         </tr>
                         @endforeach

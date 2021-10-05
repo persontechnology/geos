@@ -47,7 +47,7 @@
                         <thead>
                         <tr>
                             
-                            <th scope="col">Dispositivo</th>
+                            <th scope="col">DISPOSITIVO</th>
                             <th scope="col">LAC:MOVISTAR</th>
                             <th scope="col">CID:MOVISTAR</th>
                             <th scope="col">LAC:CLARO</th>
