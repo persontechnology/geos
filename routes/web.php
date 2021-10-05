@@ -101,9 +101,9 @@ Route::get(
             $Pot_C=$potenciaClaro;
             $Pot_CNT=$potenciaCnt;
             
-            $L_50_M=$antena_M->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_M;
-            $L_50_C=$antena_C->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_C;
-            $L_50_CNT=$antena_CNT->potencia-$A_CT+$G_T-$A_CR+$G_R-$Pot_CNT;
+            $L_50_M=$antena_M->potencia??1-$A_CT+$G_T-$A_CR+$G_R-$Pot_M;
+            $L_50_C=$antena_C->potencia??1-$A_CT+$G_T-$A_CR+$G_R-$Pot_C;
+            $L_50_CNT=$antena_CNT->potencia??1-$A_CT+$G_T-$A_CR+$G_R-$Pot_CNT;
 
             $L_50_CNT;
             
@@ -128,13 +128,13 @@ Route::get(
             $r3_CNT=$d_CNT/111.111;
 
             //ECUACION DE LATITUD Y LONGITUD
-            $k1_M=$antena_M->lat;
-            $k2_C=$antena_C->lat;
-            $k3_CNT=$antena_CNT->lat;
+            $k1_M=$antena_M->lat??-1;
+            $k2_C=$antena_C->lat??-1;
+            $k3_CNT=$antena_CNT->lat??-1;
 
-            $h1_M=$antena_M->lon;
-            $h2_C=$antena_C->lon;
-            $h3_CNT=$antena_CNT->lon;
+            $h1_M=$antena_M->lon??-1;
+            $h2_C=$antena_C->lon??-1;
+            $h3_CNT=$antena_CNT->lon??-1;
             
             // lat
 
