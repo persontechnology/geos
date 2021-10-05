@@ -192,7 +192,7 @@ Route::get('/geo-get',function(){
         'tiempoActualizacion'=>$geo->tiempoActualizacion,
         'auxlt'=>$geo->auxlt,
         'auxln'=>$geo->auxln,
-        'created_at'=>$geo->created_at->diffForHumans(),
+        'created_at'=>$geo->created_at,
     );
     return $data;
 });

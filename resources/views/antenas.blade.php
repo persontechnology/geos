@@ -32,16 +32,16 @@
                     <table class="table table-bordered table-auto">
                         <thead>
                         <tr>
-                            <th scope="col">codi</th>
-                            <th scope="col">radio</th>
-                            <th scope="col">mcc</th>
-                            <th scope="col">net</th>
-                            <th scope="col">area</th>
-                            <th scope="col">cell</th>
-                            <th scope="col">lon</th>
-                            <th scope="col">lat</th>
-                            <th scope="col">range</th>
-                            <th scope="col">potencia</th>
+                            <th scope="col">CÓDIGO</th>
+                            <th scope="col">RADIO</th>
+                            <th scope="col">MCC</th>
+                            <th scope="col">NET</th>
+                            <th scope="col">ÁREA</th>
+                            <th scope="col">CELL</th>
+                            <th scope="col">LONGITUD</th>
+                            <th scope="col">LATITUD</th>
+                            <th scope="col">RANGE</th>
+                            <th scope="col">POTENCIA(dBm)</th>
                         </tr>
                         </thead>
                         <tbody>

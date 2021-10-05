@@ -47,20 +47,20 @@
                         <thead>
                         <tr>
                             
-                            <th scope="col">codDispositivo</th>
-                            <th scope="col">codMovi</th>
-                            <th scope="col">celdaMovi</th>
-                            <th scope="col">codClaro</th>
-                            <th scope="col">celdaClaro</th>
-                            <th scope="col">codCnt</th>
-                            <th scope="col">celdaCnt</th>
-                            <th scope="col">potenciaMovistar</th>
-                            <th scope="col">potenciaClaro</th>
-                            <th scope="col">potenciaCnt</th>
-                            <th scope="col">tiempoActualizacion</th>
-                            <th scope="col">lat</th>
-                            <th scope="col">long</th>
-                            <th scope="col">Fecha</th>
+                            <th scope="col">Dispositivo</th>
+                            <th scope="col">LAC:MOVISTAR</th>
+                            <th scope="col">CID:MOVISTAR</th>
+                            <th scope="col">LAC:CLARO</th>
+                            <th scope="col">CID:CLARO</th>
+                            <th scope="col">LA:CNT</th>
+                            <th scope="col">CID:CNT</th>
+                            <th scope="col">RSSI:MOVISTAR</th>
+                            <th scope="col">RSSI:CLARO</th>
+                            <th scope="col">RSSI:CNT</th>
+                            <th scope="col">TIEMPO SUBIDA</th>
+                            <th scope="col">LATITUD</th>
+                            <th scope="col">LONGITUD</th>
+                            <th scope="col">FECHA</th>
                         </tr>
                         </thead>
                         <tbody>
